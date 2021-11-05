@@ -1,0 +1,115 @@
+//pour crerr un projet  laravel via composer 
+composer create-project laravel/laravel learn
+
+//pour poister dans le dossier learn 
+cd learn
+
+//pour ouvrir automatqiement vs dans le dossier learn
+code .
+
+//pour lancer le serveur interne
+php artisan serve
+
+//les trois synthax sont similaire (la derniere est celle du moteur de template blade)
+<?php echo $nom; ?>
+<?= $nom ?>    
+{{ $nom }}
+
+//pour créer un controlleur 
+php artisan make:controller DataController
+
+//pour creer un model il est tjr en majuscule & singulier
+php artisan make:model nom_du_model
+
+//pour creer une migration ( creer une table) il est tjr en miniscule & pluriel
+php artisan make:migration nom_de_la_table
+
+//pour envoyer le code à my sql ( execustion)
+php artisan migrate
+//attention : cette cmd genere une erreur pour la resoudre faut modifier le fichier config/database ( utf8 dans la partie sql)
+
+//pour rafraichir la base de données , va supprimer la table qui existe deja
+php artisan migrate:fresh
+
+//pour sortir d'un dossier 
+cd ../
+
+//pour lancer le serveur
+ php artisan serve
+
+//permet de creer le model et la migration automatiquement
+ php artisan make:model Contact -m
+
+//419 une faile de securité csrf : pouvoir envoyer des infos depuis l'exrerieur ( sans passer pas le formulaire du site)
+//pour resoudre le blem : jeton de securité token
+
+//@method('put') ou @method('patch') on le met sion veut faire une modification ( c'est une couche suup sur la methode denvois de formulaire post)
+
+//@method('delete')  on le met si on veut faire une suppertion pour garentire la securité 
+
+//pour genere une notif, attention le nom de la notification doit respecter la camel-case
+php artisan make:notification EmailVerifNotification
+
+php artisan make:notification nom_de_la_notif
+
+
+//pour installer le packet authentification
+composer require laravel/ui
+
+//pour le rendre fonctionnel ( le mettre en execution)
+php artisan ui bootstrap --auth
+
+//npm c'est le gestionnaire des paquets pour javascript
+//composer c'est le gestionnaire des paquets pour php
+
+//pour instaler d'une maniere local tt les dependance dont il a aura besoin pour fonctionner
+npm install
+
+//les commandes a faire dans l'orde selon javascript
+php artisan ui bootstrap --auth
+npm install
+//pour executer tt ce qui faut pour que le paquet fonctionne corectement
+npm run dev
+
+//en cas d'erreur faut refaire 
+npm run dev
+
+//pour savoir la version du npm
+npm -v
+
+//pour connaitre tt les routes 
+php artisan route:list
+
+// attention le fresh va supprimer les table pour les creer à nouveau!
+
+//pour envoyer les donnes d'admin dans le seeders, cette commande fait le refresh( supprime tt) et envois les données de seeders
+php artisan migrate:fresh --seed
+
+//envois les donnees de databaseseeder
+php artisan db:seed
+
+//genere un seeder
+php artisan make:seeder UserSeeder
+
+//on mettant le -r (pour les ressourses) laravel propose les methodes à utuliser 
+php artisan make:controller Admin\CategoryController -r
+//pour creer le model et la migration
+php artisan make:model Category -m
+
+//pour creer le model et la migration et le controlleur , m pour le model c pour le controlleur , r pour ls resources des controlleurs
+php artisan make:model Category -mcr
+
+//pour installer package pour pouvoir avoir  slug
+composer require cviebrock/eloquent-sluggable
+
+//pour rafraichir le seeder
+php artisan migrate:fresh --seed
+
+//pour creer un middleware 
+php artisan make:middleware AdminMiddleware
+
+//pour creer la table associative pour les relation  hasmany
+php artisan make:migration create_post_tag_table
+
+
+
